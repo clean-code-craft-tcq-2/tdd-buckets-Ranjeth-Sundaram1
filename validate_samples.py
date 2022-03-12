@@ -43,7 +43,7 @@ def IsSampleInRange(sample, in_range_samples):
 def RemoveOccuranceOneSample(sample_collections):
     filtered_samples = []
     for samples in sample_collections:
-        if len(samples) != 1:
+        if len(samples) > 1:
             filtered_samples.append(samples)
         pass
     return filtered_samples
