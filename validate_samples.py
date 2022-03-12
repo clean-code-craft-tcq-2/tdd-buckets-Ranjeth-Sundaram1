@@ -47,3 +47,7 @@ def RemoveOccuranceOneSample(sample_collections):
             filtered_samples.append(samples)
         pass
     return filtered_samples
+
+def RearrangeSamples(input_samples):
+    input_samples.sort()
+    return(input_samples)
