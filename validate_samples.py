@@ -18,9 +18,10 @@ def SplitSamplesInToRanges(input_samples:list):
     return sample_collections
 
 def validateSamplesInAllRange(input_samples:list):
-    sample_collections = SplitSamplesInToRanges(input_samples=input_samples)
+    sample_collections = SplitSamplesInToRanges(input_samples=RearrangeSamples(input_samples))
+    filtered_samples = RemoveOccuranceOneSample(sample_collections)
     validation_report = []
-    for one_collection in sample_collections:
+    for one_collection in filtered_samples:
         validation_report.append(CountAndPrintSamplesinOneRange(one_collection=one_collection))
     return validation_report
 
