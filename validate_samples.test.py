@@ -23,6 +23,8 @@ class TypewiseTest(unittest.TestCase):
 
     def test_validateSamplesInAllRange(self):
         self.assertTrue(validate_samples.validateSamplesInAllRange([3, 4, 5])==[(3, "3-5, 3")])
+        self.assertTrue(validate_samples.validateSamplesInAllRange([2, 3, 4, 5, 7, 9, 10, 12])==[(4, "2-5, 4"), (2, "9-10, 2")])
+        self.assertTrue(validate_samples.validateSamplesInAllRange([2, 5, 9])==[])
         
     def test_RemoveOccuranceOneSample(self):
         self.assertTrue(validate_samples.RemoveOccuranceOneSample([[2], [4,5,6], [9],[12,13, 14]]) == [[4,5,6], [12, 13, 14]])
