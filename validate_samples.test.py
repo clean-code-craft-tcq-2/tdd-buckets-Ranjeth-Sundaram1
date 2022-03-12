@@ -27,7 +27,7 @@ class TypewiseTest(unittest.TestCase):
     def test_RemoveOccuranceOneSample(self):
         self.assertTrue(validate_samples.RemoveOccuranceOneSample([[2], [4,5,6], [9],[12,13, 14]]) == [[4,5,6], [12, 13, 14]])
         self.assertTrue(validate_samples.RemoveOccuranceOneSample([[3, 4, 5], [8, 9, 10]]) == [[3, 4, 5], [8, 9, 10]])
-        self.assertTrue(validate_samples.RemoveOccuranceOneSample([2], [4]) == [])
+        self.assertTrue(validate_samples.RemoveOccuranceOneSample([[2], [4]]) == [])
 
 if __name__ == '__main__':
   unittest.main()
