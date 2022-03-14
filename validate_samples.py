@@ -7,7 +7,7 @@ def SplitSamplesInToRanges(input_samples:list):
     in_range_samples = []
     sample_collections = []
     for sample in input_samples:
-        is_Sample_in_Range = IsSampleInRange(sample=sample, in_range_samples= in_range_samples)
+        is_Sample_in_Range = IsSampleHasContinuity(sample=sample, in_range_samples= in_range_samples)
         if is_Sample_in_Range:
             in_range_samples.append(sample)
             if sample == input_samples[-1]:
@@ -38,11 +38,6 @@ def IsSampleHasContinuity(sample, in_range_samples):
             return True
         return False
     return True
-
-def IsSampleInRange(sample, in_range_samples):
-    if IsSampleHasContinuity(sample, in_range_samples):
-        return True
-    return False
 
 def RemoveOccuranceOneSample(sample_collections):
     filtered_samples = []
