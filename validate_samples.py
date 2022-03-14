@@ -44,7 +44,6 @@ def RemoveOccuranceOneSample(sample_collections):
     for samples in sample_collections:
         if len(samples) > 1:
             filtered_samples.append(samples)
-        pass
     return filtered_samples
 
 def RearrangeSamples(input_samples):
