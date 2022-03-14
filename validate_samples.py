@@ -31,7 +31,7 @@ def CountAndPrintSamplesinOneRange(one_collection=None):
 
 def IsSampleHasContinuity(sample, in_range_samples):
     if in_range_samples != []:
-        if sample == int(in_range_samples[-1])+1:
+        if sample == int(in_range_samples[-1])+1 or sample == int(in_range_samples[-1]):
             return True
         return False
     return True
