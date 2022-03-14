@@ -7,7 +7,7 @@ def SplitSamplesInToRanges(input_samples:list):
     in_range_samples = []
     sample_collections = []
     for sample in input_samples:
-        is_Sample_in_Range = IsSampleInRange(sample=sample, in_range_samples= in_range_samples)
+        is_Sample_in_Range = IsSampleHasContinuity(sample=sample, in_range_samples= in_range_samples)
         if is_Sample_in_Range:
             in_range_samples.append(sample)
             if sample == input_samples[-1]:
