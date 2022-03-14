@@ -15,11 +15,7 @@ class TypewiseTest(unittest.TestCase):
         self.assertTrue(validate_samples.IsSampleHasContinuity(4, [3]) == True)
         self.assertTrue(validate_samples.IsSampleHasContinuity(5, [3]) == False)
         self.assertTrue(validate_samples.IsSampleHasContinuity(5, []) == True)
-
-    def test_IsSampleInRange(self):
-        self.assertTrue(validate_samples.IsSampleInRange(4, [3])== True)
-        self.assertTrue(validate_samples.IsSampleInRange(5, [3])== False)
-        self.assertTrue(validate_samples.IsSampleInRange(3, [])== True)
+        self.assertTrue(validate_samples.IsSampleHasContinuity(3, [3]) == True)
 
     def test_validateSamplesInAllRange(self):
         self.assertTrue(validate_samples.validateSamplesInAllRange([3, 4, 5])==[(3, "3-5, 3")])
