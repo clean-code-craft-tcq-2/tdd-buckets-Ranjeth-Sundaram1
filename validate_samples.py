@@ -36,11 +36,6 @@ def IsSampleHasContinuity(sample, in_range_samples):
         return False
     return True
 
-def IsSampleInRange(sample, in_range_samples):
-    if sample not in in_range_samples and IsSampleHasContinuity(sample, in_range_samples):
-        return True
-    return False
-
 def RemoveOccuranceOneSample(sample_collections):
     filtered_samples = []
     for samples in sample_collections:
