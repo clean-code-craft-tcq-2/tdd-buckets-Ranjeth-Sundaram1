@@ -37,4 +37,4 @@ class TypewiseTest(unittest.TestCase):
         self.assertTrue(validate_samples.RearrangeSamples([5, 6, 7]) == [5, 6, 7])
         self.assertTrue(validate_samples.RearrangeSamples([]) == [])
 
-  unittest.main(),
+unittest.main(),
