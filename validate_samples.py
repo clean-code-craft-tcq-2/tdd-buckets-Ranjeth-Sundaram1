@@ -6,27 +6,27 @@ def PrintSampleDetailsIntoConsole(samples, count):
 def SplitSamplesInToRanges(input_samples:list):
     in_range_samples = []
     sample_collections = []
-    if input_samples != []:
-        for sample in input_samples:
-            is_Sample_in_Range = IsSampleHasContinuity(sample=sample, in_range_samples= in_range_samples)
-            if is_Sample_in_Range:
-                in_range_samples.append(sample)
-                if sample == input_samples[-1]:
-                    sample_collections.append(in_range_samples)
-            else:
+    for sample in input_samples:
+        is_Sample_in_Range = IsSampleHasContinuity(sample=sample, in_range_samples= in_range_samples)
+        if is_Sample_in_Range:
+            in_range_samples.append(sample)
+            if sample == input_samples[-1]:
                 sample_collections.append(in_range_samples)
-                in_range_samples = []
-                in_range_samples.append(sample)
-        return sample_collections
-    return []
+        else:
+            sample_collections.append(in_range_samples)
+            in_range_samples = []
+            in_range_samples.append(sample)
+    return sample_collections
+    
 def IdentifyRangesofSamples(input_samples:list):
-    sample_collections = SplitSamplesInToRanges(input_samples=RearrangeSamples(input_samples))
-    filtered_samples = RemoveOccuranceOneSample(sample_collections)
-    validation_report = []
-    for one_collection in filtered_samples:
-        validation_report.append(CountSamplesinOneRange(one_collection=one_collection))
-    return validation_report
-
+    if input_samples != []:
+        sample_collections = SplitSamplesInToRanges(input_samples=RearrangeSamples(input_samples))
+        filtered_samples = RemoveOccuranceOneSample(sample_collections)
+        validation_report = []
+        for one_collection in filtered_samples:
+            validation_report.append(CountSamplesinOneRange(one_collection=one_collection))
+        return validation_report
+    return []
 def CountSamplesinOneRange(one_collection=None):
     if one_collection != []:
         messagefromConsole = PrintSampleDetailsIntoConsole(one_collection, len(one_collection))
