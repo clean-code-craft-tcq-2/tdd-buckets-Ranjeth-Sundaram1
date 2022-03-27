@@ -19,7 +19,7 @@ def SplitSamplesInToRanges(input_samples:list):
                 in_range_samples.append(sample)
         return sample_collections
     return []
-def validateSamplesInAllRange(input_samples:list):
+def IdentifyRangesofSamples(input_samples:list):
     sample_collections = SplitSamplesInToRanges(input_samples=RearrangeSamples(input_samples))
     filtered_samples = RemoveOccuranceOneSample(sample_collections)
     validation_report = []
