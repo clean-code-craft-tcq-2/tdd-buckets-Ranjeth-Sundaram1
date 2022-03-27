@@ -6,7 +6,7 @@ class TypewiseTest(unittest.TestCase):
         self.assertTrue(validate_samples.PrintSampleDetailsIntoConsole([3, 4, 5], 3) == '3-5, 3')
         self.assertTrue(validate_samples.PrintSampleDetailsIntoConsole([1, 1, 2, 3], 4) == '1-3, 4')
 
-    def test_CountAndPrintSamplesinOneRange(self):
+    def test_CountSamples(self):
         self.assertTrue(validate_samples.CountAndPrintSamplesinOneRange([3, 4, 5]) == (3, "3-5, 3"))
         self.assertTrue(validate_samples.CountAndPrintSamplesinOneRange([1, 1, 2, 3]) == (4,'1-3, 4'))
         self.assertTrue(validate_samples.CountAndPrintSamplesinOneRange([]) == (0, "No data to print"))
