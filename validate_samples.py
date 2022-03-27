@@ -6,20 +6,21 @@ def PrintSampleDetailsIntoConsole(samples, count):
 def SplitSamplesInToRanges(input_samples:list):
     in_range_samples = []
     sample_collections = []
-    for sample in input_samples:
-        is_Sample_in_Range = IsSampleHasContinuity(sample=sample, in_range_samples= in_range_samples)
-        if is_Sample_in_Range:
-            in_range_samples.append(sample)
-            if sample == input_samples[-1]:
+    if input_samples != []:
+        for sample in input_samples:
+            is_Sample_in_Range = IsSampleHasContinuity(sample=sample, in_range_samples= in_range_samples)
+            if is_Sample_in_Range:
+                in_range_samples.append(sample)
+                if sample == input_samples[-1]:
+                    sample_collections.append(in_range_samples)
+            else:
                 sample_collections.append(in_range_samples)
-        else:
-            sample_collections.append(in_range_samples)
-            in_range_samples = []
-            in_range_samples.append(sample)
-    return sample_collections
-
+                in_range_samples = []
+                in_range_samples.append(sample)
+        return sample_collections
+    return []
 def validateSamplesInAllRange(input_samples:list):
-    sample_collections = SplitSamplesInToRanges(input_samples=input_samples.sort())
+    sample_collections = SplitSamplesInToRanges(input_samples=RearrangeSamples(input_samples))
     filtered_samples = RemoveOccuranceOneSample(sample_collections)
     validation_report = []
     for one_collection in filtered_samples:
@@ -45,3 +46,7 @@ def RemoveOccuranceOneSample(sample_collections):
         if len(samples) > 1:
             filtered_samples.append(samples)
     return filtered_samples
+
+def RearrangeSamples(input_samples):
+    input_samples.sort()
+    return(input_samples)
