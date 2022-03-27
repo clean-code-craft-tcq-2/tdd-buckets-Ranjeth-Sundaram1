@@ -26,7 +26,7 @@ def validateSamplesInAllRange(input_samples:list):
         validation_report.append(CountAndPrintSamplesinOneRange(one_collection=one_collection))
     return validation_report
 
-def CountAndPrintSamplesinOneRange(one_collection=None):
+def CountSamples(one_collection=None):
     if one_collection != []:
         messagefromConsole = PrintSampleDetailsIntoConsole(one_collection, len(one_collection))
         return (len(one_collection), messagefromConsole)
