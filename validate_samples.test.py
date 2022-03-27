@@ -6,7 +6,7 @@ class TypewiseTest(unittest.TestCase):
         self.assertTrue(validate_samples.PrintSampleDetailsIntoConsole([3, 4, 5], 3) == '3-5, 3')
         self.assertTrue(validate_samples.PrintSampleDetailsIntoConsole([1, 1, 2, 3], 4) == '1-3, 4')
 
-    def test_CountSamplesinOneRange(self):
+    def test_CountAndPrintSamplesinOneRange(self):
         self.assertTrue(validate_samples.CountSamplesinOneRange([3, 4, 5]) == (3, "3-5, 3"))
         self.assertTrue(validate_samples.CountSamplesinOneRange([1, 1, 2, 3]) == (4,'1-3, 4'))
         self.assertTrue(validate_samples.CountSamplesinOneRange([]) == (0, "No data to print"))
@@ -25,11 +25,17 @@ class TypewiseTest(unittest.TestCase):
         self.assertTrue(validate_samples.validateSamplesInAllRange([3, 4, 5])==[(3, "3-5, 3")])
         self.assertTrue(validate_samples.validateSamplesInAllRange([2, 3, 4, 5, 7, 9, 10, 12])==[(4, "2-5, 4"), (2, "9-10, 2")])
         self.assertTrue(validate_samples.validateSamplesInAllRange([2, 5, 9])==[])
+        self.assertTrue(validate_samples.validateSamplesInAllRange([])==[])
 
     def test_RemoveOccuranceOneSample(self):
         self.assertTrue(validate_samples.RemoveOccuranceOneSample([[2], [4,5,6], [9],[12,13, 14]]) == [[4,5,6], [12, 13, 14]])
         self.assertTrue(validate_samples.RemoveOccuranceOneSample([[3, 4, 5], [8, 9, 10]]) == [[3, 4, 5], [8, 9, 10]])
         self.assertTrue(validate_samples.RemoveOccuranceOneSample([[2], [4]]) == [])
         self.assertTrue(validate_samples.RemoveOccuranceOneSample([[2], []]) == [])
+
+    def test_RearrangeSamples(self):
+        self.assertTrue(validate_samples.RearrangeSamples([1, 4, 2, 7, 5, 8, 9]) == [1, 2, 4, 5, 7, 8, 9])
+        self.assertTrue(validate_samples.RearrangeSamples([5, 6, 7]) == [5, 6, 7])
+        self.assertTrue(validate_samples.RearrangeSamples([]) == [])
 
 unittest.main(),
