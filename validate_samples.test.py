@@ -6,10 +6,10 @@ class TypewiseTest(unittest.TestCase):
         self.assertTrue(validate_samples.PrintSampleDetailsIntoConsole([3, 4, 5], 3) == '3-5, 3')
         self.assertTrue(validate_samples.PrintSampleDetailsIntoConsole([1, 1, 2, 3], 4) == '1-3, 4')
 
-    def test_CountSamples(self):
-        self.assertTrue(validate_samples.CountSamples([3, 4, 5]) == (3, "3-5, 3"))
-        self.assertTrue(validate_samples.CountSamples([1, 1, 2, 3]) == (4,'1-3, 4'))
-        self.assertTrue(validate_samples.CountSamples([]) == (0, "No data to print"))
+    def test_CountSamplesinOneRange(self):
+        self.assertTrue(validate_samples.CountSamplesinOneRange([3, 4, 5]) == (3, "3-5, 3"))
+        self.assertTrue(validate_samples.CountSamplesinOneRange([1, 1, 2, 3]) == (4,'1-3, 4'))
+        self.assertTrue(validate_samples.CountSamplesinOneRange([]) == (0, "No data to print"))
 
     def test_IsSampleHasContinuity(self):
         self.assertTrue(validate_samples.IsSampleHasContinuity(4, [3]) == True)
