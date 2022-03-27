@@ -32,9 +32,4 @@ class TypewiseTest(unittest.TestCase):
         self.assertTrue(validate_samples.RemoveOccuranceOneSample([[2], [4]]) == [])
         self.assertTrue(validate_samples.RemoveOccuranceOneSample([[2], []]) == [])
 
-    def test_RearrangeSamples(self):
-        self.assertTrue(validate_samples.RearrangeSamples([1, 4, 2, 7, 5, 8, 9]) == [1, 2, 4, 5, 7, 8, 9])
-        self.assertTrue(validate_samples.RearrangeSamples([5, 6, 7]) == [5, 6, 7])
-        self.assertTrue(validate_samples.RearrangeSamples([]) == [])
-
 unittest.main(),
