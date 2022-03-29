@@ -6,16 +6,19 @@ def PrintSampleDetailsIntoConsole(samples, count):
 def SplitSamplesInToRanges(input_samples:list):
     in_range_samples = []
     sample_collections = []
-    for sample in input_samples:
-        is_Sample_in_Range = IsSampleHasContinuity(sample=sample, in_range_samples= in_range_samples)
+    print(input_samples)
+    for i in range(0, len(input_samples)):
+        print (input_samples[i], in_range_samples, sample_collections)
+        is_Sample_in_Range = IsSampleHasContinuity(sample=input_samples[i], in_range_samples= in_range_samples)
         if is_Sample_in_Range:
-            in_range_samples.append(sample)
-            if sample == input_samples[-1]:
+            in_range_samples.append(input_samples[i])
+            if i == len(input_samples)-1:
                 sample_collections.append(in_range_samples)
         else:
             sample_collections.append(in_range_samples)
             in_range_samples = []
-            in_range_samples.append(sample)
+            in_range_samples.append(input_samples[i])
+        print(sample_collections)
     return sample_collections
     
 def IdentifyRangesofSamples(input_samples:list):
