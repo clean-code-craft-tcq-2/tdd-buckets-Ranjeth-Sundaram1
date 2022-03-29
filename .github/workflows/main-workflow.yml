@@ -26,7 +26,13 @@ jobs:
           flake8 . --count --exit-zero --max-line-length=80 --ignore=E111,E121,E126 --statistics
       - name: Run and collect coverage
         run: |
-          coverage run --branch examine_samples.test.py examine_samples_A2D_12Bit.test.py examine_samples_A2D_10Bit.test.py
+          coverage run --branch examine_samples.test.py  
+          coverage html
+          coverage report
+          coverage run --branch examine_samples_A2D_12Bit.test.py
+          coverage html
+          coverage report
+          coverage run --branch examine_samples_A2D_10Bit.test.py
           coverage html
           coverage report
       - name: Upload coverage
